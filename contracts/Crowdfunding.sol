@@ -4,9 +4,8 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract Crowdfunding is Initializable, UUPSUpgradeable, OwnableUpgradeable, ReentrancyGuard {
+contract Crowdfunding is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     ERC20 public token;
     uint public fundingGoal;
     uint public raisedAmount;
@@ -16,7 +15,7 @@ contract Crowdfunding is Initializable, UUPSUpgradeable, OwnableUpgradeable, Ree
     event FundingGoalReached(uint raisedAmount);
     event Refund(address indexed backer, uint indexed amount);
 
-    function initialize(ERC20 _token, uint _fundingGoal) public initializer nonReentrant {
+    function initialize(ERC20 _token, uint _fundingGoal) public initializer {
         __Ownable_init();
         token = _token;
         fundingGoal = _fundingGoal;
@@ -37,7 +36,7 @@ contract Crowdfunding is Initializable, UUPSUpgradeable, OwnableUpgradeable, Ree
         }
     }
 
-    function refund() external nonReentrant {
+    function refund() external {
         require(raisedAmount < fundingGoal, "Funding goal has been reached.");
         uint256 amount = pledges[msg.sender];
         require(amount > 0, "No pledges found.");
@@ -49,9 +48,10 @@ contract Crowdfunding is Initializable, UUPSUpgradeable, OwnableUpgradeable, Ree
         require(token.transfer(msg.sender, amount), "Token transfer failed.");
     }
 
-    function withdrawFunds() external onlyOwner nonReentrant {
+    function withdrawFunds() external onlyOwner {
         require(raisedAmount >= fundingGoal, "Funding goal has not been reached.");
-        require(token.transfer(owner(), raisedAmount), "Token transfer failed.");
+        uint256 raised = raisedAmount;
         raisedAmount = 0;
+        require(token.transfer(owner(), raised), "Token transfer failed.");
     }
 }

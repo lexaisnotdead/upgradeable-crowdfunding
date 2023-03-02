@@ -3,6 +3,11 @@
     "@openzeppelin/contracts": "^4.8.1",
     "@openzeppelin/contracts-upgradeable": "^4.8.1",
     "@truffle/hdwallet-provider": "^2.1.7",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "ganache-cli": "^6.12.2"
+  },
+  "devDependencies": {
+    "@openzeppelin/truffle-upgrades": "^1.8.0",
+    "truffle-plugin-verify": "^0.6.1"
   }
 }
