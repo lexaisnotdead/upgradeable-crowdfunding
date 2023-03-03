@@ -9,4 +9,4 @@
 
  Token contract - [Token](https://goerli.etherscan.io/address/0x731d5685Bd1c0fD47EE14f253E8C5aBfB01CE169)
 
- Crowdfunding contract - [Crowdfuning](https://goerli.etherscan.io/address/0x408Cd84EC44F54Ac210C6207307f70E5D5DD312B)
+ Crowdfunding contract - [Crowdfunding](https://goerli.etherscan.io/address/0x408Cd84EC44F54Ac210C6207307f70E5D5DD312B)
