@@ -6,7 +6,7 @@
 4. dApps using the contract can observe state changes in transaction logs
 5. Contract is upgradeable
 
+## Goerli
+ Verified token contract in the goerli netwotk - [Token](https://goerli.etherscan.io/address/0x731d5685Bd1c0fD47EE14f253E8C5aBfB01CE169)
 
- Token contract in the goerli netwotk - [Token](https://goerli.etherscan.io/address/0x731d5685Bd1c0fD47EE14f253E8C5aBfB01CE169)
-
- Crowdfunding contract in the goerli network - [Crowdfunding](https://goerli.etherscan.io/address/0x408Cd84EC44F54Ac210C6207307f70E5D5DD312B)
+ Verified crowdfunding contract in the goerli network - [Crowdfunding](https://goerli.etherscan.io/address/0x408Cd84EC44F54Ac210C6207307f70E5D5DD312B)
